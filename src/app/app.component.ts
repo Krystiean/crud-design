@@ -1,12 +1,35 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true, 
+  imports: [CommonModule, ReactiveFormsModule], 
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'crud-design';
+  campaignForm: FormGroup;
+  submitted = false;
+  campaignData: any;
+
+  constructor(private fb: FormBuilder) {
+    this.campaignForm = this.fb.group({
+      name: ['', Validators.required],
+      keywords: ['', Validators.required],
+      bidAmount: [null, [Validators.required, Validators.min(0)]],
+      budget: [null, [Validators.required, Validators.min(0)]],
+      status: ['on', Validators.required],
+      location: ['', Validators.required],
+      reach: [null, [Validators.required, Validators.min(0)]],
+    });
+  }
+
+  onSubmit() {
+    if (this.campaignForm.valid) {
+      this.submitted = true;
+      this.campaignData = this.campaignForm.value;
+    }
+  }
 }

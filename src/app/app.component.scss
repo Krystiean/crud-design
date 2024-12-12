@@ -1,0 +1,68 @@
+.campaign-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+label {
+  display: block;
+  margin: 0.5em 0 0.2em;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 0;
+  margin-bottom: 1em;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .campaign-form {
+    padding: 0.5em;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 0.9em;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+}
+
+@media (max-width: 480px) {
+  .campaign-form {
+    padding: 0.2em;
+    border: none;
+  }
+
+  input,
+  select,
+  button {
+    font-size: 0.8em;
+    padding: 0;
+  }
+
+  h2 {
+    font-size: 1.2em;
+  }
+}
