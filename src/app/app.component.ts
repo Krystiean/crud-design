@@ -32,4 +32,10 @@ export class AppComponent {
       this.campaignData = this.campaignForm.value;
     }
   }
+
+  deleteCampaign() {
+    this.campaignForm.reset(); 
+    this.campaignData = null; 
+    this.submitted = false;    
+  }
 }

@@ -40,6 +40,7 @@
     </div>
 
     <button type="submit" [disabled]="!campaignForm.valid">Create Campaign</button>
+    <button (click)="deleteCampaign()" *ngIf="campaignData">Delete Campaign</button>
   </form>
 
   <div *ngIf="submitted">
